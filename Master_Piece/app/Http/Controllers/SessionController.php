@@ -67,7 +67,7 @@ class SessionController extends Controller
         Session::create($input);
         
         return redirect()->route('sessions.index')
-                        ->with('success','Session Services created successfully.');
+                        ->with('success',' Session Services created successfully.');
     }
 
     /**
@@ -98,7 +98,6 @@ class SessionController extends Controller
             'services'=>$services,
             'session'=>$session,
             'rooms'=>$rooms,
-
         ]);
     }
 
@@ -119,19 +118,12 @@ class SessionController extends Controller
             'room_id'=> 'required',
         ]);
 
-
-
- 
-
-
         $session = Session::find($id);
         $session->name_session = $request->name_session;
         $session->service_id = $request->service_id;
         $session->room_id = $request->room_id;
         $session->cost_session = $request->cost_session;
         $session->detail_session = $request->detail_session;
-
-
         $session->save();
 
         return redirect()->route('sessions.index')
